@@ -252,12 +252,12 @@ void lang_defaults()
 	lang.err_user_uid = strdup("failed to set user UID");
 	lang.err_xsessions_dir = strdup("failed to find sessions folder");
 	lang.err_xsessions_open = strdup("failed to open sessions folder");
-	lang.f1 = strdup("F1 shutdown");
+	lang.f1 = strdup("F1 shutdown ");
 	lang.f2 = strdup("F2 reboot");
 	lang.login = strdup("login:");
 	lang.logout = strdup("logged out");
 	lang.numlock = strdup("numlock");
-	lang.password = strdup("password:");
+	lang.password = strdup("passwd: ");
 	lang.shell = strdup("shell");
 	lang.wayland = strdup("wayland");
 	lang.xinitrc = strdup("xinitrc");

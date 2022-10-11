@@ -442,7 +442,7 @@ void draw_input(struct text* input)
 	}
 }
 
-void draw_input_mask(struct text* input)
+void draw_input_mask(struct text* input, struct term_buf* buf)
 {
 	uint16_t len = strlen(input->text);
 	uint16_t visible_len = input->visible_len;
@@ -472,12 +472,6 @@ void draw_input_mask(struct text* input)
 				&c2);
 		}
 	}
-
-	tb_put_cell(
-		buf->box_x + buf->box_width - 2,
-		input->y,
-		&rb
-	);
 }
 
 void position_input(

@@ -13,6 +13,7 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <sys/utsname.h>
+#include <time.h>
 
 #if defined(__DragonFly__) || defined(__FreeBSD__)
 	#include <sys/consio.h>
@@ -209,7 +210,10 @@ void get_uname(char** out)
 
 	uname_backup = malloc(maxlen + 1);
 
-	sprintf(uname_backup, "%s %s %s %s | %s", un.sysname, un.release, un.version, un.machine, un.nodename);
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+
+	sprintf(uname_backup, " %s %s | %s | %d-%02d-%02d | %s", un.sysname, un.release, un.machine, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, un.nodename);
 
 	*out = uname_backup;
 }
